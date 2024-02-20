@@ -2,5 +2,6 @@ package Biblioteca.Midias;
 
 import Biblioteca.Midia;
 
-public class Jornal extends Midia {
+public class Livro extends Midia {
+
 }

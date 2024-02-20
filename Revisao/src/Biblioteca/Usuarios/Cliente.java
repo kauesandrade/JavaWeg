@@ -8,10 +8,11 @@ public class Cliente extends Usuario {
         super(nome, usuario, senha);
     }
 
-    @Override
-    protected boolean adicionarEmprestimo(Midia midia){
-        int qtd = analiseDeMidiaEmprestadas(midia);
-        if (qtd < 3){
+    protected boolean adicionarEmprestimo(Midia midia) {
+
+        int qtd = analiseDeMidiasEmprestadas(midia);
+
+        if (qtd < 3) {
             emprestimos.add(midia);
             return true;
         }
