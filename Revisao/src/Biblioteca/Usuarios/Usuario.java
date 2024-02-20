@@ -4,6 +4,8 @@ import Biblioteca.Midia;
 import Biblioteca.Midias.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public abstract class Usuario {
 
@@ -11,7 +13,7 @@ public abstract class Usuario {
     private final static ArrayList<Usuario> usuarios = new ArrayList<>();
 
     private String nome;
-    private static String usuario;
+    private String usuario;
     private String senha;
     protected ArrayList<Midia> emprestimos;
 
@@ -34,6 +36,9 @@ public abstract class Usuario {
     }
 
     public static void addUsuario (Usuario usuario) {
+        System.out.println(usuario.usuario);
+        System.out.println(usuario.senha);
+
         usuarios.add(usuario);
     }
 
@@ -82,4 +87,25 @@ public abstract class Usuario {
 
     }
 
+    public List<Midia> getEmprestimos() {
+        return emprestimos;
+    }
+
+    public static Usuario procurarUsuario(String usuario){
+        for(Usuario usuarioAchado : usuarios){
+            if(usuarioAchado.usuario.equals(usuario)){
+                return usuarioAchado;
+            }
+        }
+        return null;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nome='" + nome + '\'' +
+                ", usuario='" + usuario + '\'' +
+                '}';
+    }
 }

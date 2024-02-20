@@ -1,5 +1,7 @@
 package Biblioteca.Usuarios;
 
+import Biblioteca.Midia;
+
 public class Bibliotecario extends Funcionario {
 
     public Bibliotecario(String nome, String usuario, String senha) {
@@ -18,6 +20,14 @@ public class Bibliotecario extends Funcionario {
         if (!(usuario instanceof Bibliotecario)) {
             Usuario.removeUsuario(usuario);
         }
+    }
+
+    public void cadastrarMidia(Midia midia){
+        Midia.addMidia(midia);
+    }
+
+    public void removerMidia(int codigo){
+        Midia.removeMidia(codigo);
     }
 
 }
