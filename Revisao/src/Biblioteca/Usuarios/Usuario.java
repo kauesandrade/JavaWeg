@@ -15,7 +15,7 @@ public abstract class Usuario {
     private String nome;
     private String usuario;
     private String senha;
-    protected ArrayList<Midia> emprestimos;
+    protected ArrayList<Midia> emprestimos = new ArrayList<>();
 
     public Usuario (String nome, String usuario, String senha) {
         this.nome = nome;
@@ -36,9 +36,6 @@ public abstract class Usuario {
     }
 
     public static void addUsuario (Usuario usuario) {
-        System.out.println(usuario.usuario);
-        System.out.println(usuario.senha);
-
         usuarios.add(usuario);
     }
 
@@ -62,17 +59,20 @@ public abstract class Usuario {
 
         int qtd = 0;
 
-        for (Midia midiaAnalise:emprestimos) {
-            if (midiaAnalise instanceof DVD && midia instanceof DVD) {
-                qtd++;
-            } else if (midiaAnalise instanceof Livro && midia instanceof Livro) {
-                qtd++;
-            } else if (midiaAnalise instanceof Revista && midia instanceof Revista) {
-                qtd++;
-            } else if (midiaAnalise instanceof Jornal && midia instanceof Jornal) {
-                qtd++;
-            }
+
+            for (Midia midiaAnalise : emprestimos) {
+                if (midiaAnalise instanceof DVD && midia instanceof DVD) {
+                    qtd++;
+                } else if (midiaAnalise instanceof Livro && midia instanceof Livro) {
+                    qtd++;
+                } else if (midiaAnalise instanceof Revista && midia instanceof Revista) {
+                    qtd++;
+                } else if (midiaAnalise instanceof Jornal && midia instanceof Jornal) {
+                    qtd++;
+                }
+
         }
+
         return qtd;
     }
 
@@ -81,7 +81,7 @@ public abstract class Usuario {
         Midia midia = Midia.procurarMidia(codigo);
 
         if (midia == null) {
-            return "Midia nao encontrada";
+            return "Mídia não encontrada";
         }
         return midia.toString();
 
@@ -103,9 +103,8 @@ public abstract class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "nome='" + nome + '\'' +
-                ", usuario='" + usuario + '\'' +
-                '}';
+        return "\nUsuario: "+
+                "\n- Nome: " + nome +
+                "\n- Usuário: " + usuario;
     }
 }

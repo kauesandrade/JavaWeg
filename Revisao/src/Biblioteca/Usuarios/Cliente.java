@@ -11,7 +11,6 @@ public class Cliente extends Usuario {
     protected boolean adicionarEmprestimo(Midia midia) {
 
         int qtd = analiseDeMidiasEmprestadas(midia);
-
         if (qtd < 3) {
             emprestimos.add(midia);
             return true;

@@ -6,11 +6,15 @@ import java.util.List;
 
 public abstract class Midia {
 
-    private boolean emprestado;
-
     private static final ArrayList<Midia> midias = new ArrayList<>();
 
+    private boolean emprestado;
+
     private int codigo;
+
+    public Midia(int codigo){
+        this.codigo = codigo;
+    }
 
     public static Midia procurarMidia(int codigo) {
 
@@ -21,14 +25,6 @@ public abstract class Midia {
         }
         return null;
 
-    }
-
-    public boolean isEmprestado() {
-        return emprestado;
-    }
-
-    public void alterarEmprestimo () {
-        this.emprestado = !this.emprestado;
     }
 
     public static List<Midia> getMidias() {
@@ -48,12 +44,22 @@ public abstract class Midia {
         }
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public boolean isEmprestado() {
+        return emprestado;
+    }
+
+    public void alterarEmprestimo () {
+        this.emprestado = !this.emprestado;
+    }
+
     @Override
     public String toString() {
-        return "Midia{" +
-                "codigo=" + codigo +
-                ", emprestado=" + emprestado +
-
-                '}';
+        return "\nMídia: " +
+                "\n- Código: " + codigo +
+                "\n- Emprestado: " + emprestado;
     }
 }

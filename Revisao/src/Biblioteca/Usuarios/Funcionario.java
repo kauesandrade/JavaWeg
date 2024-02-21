@@ -19,7 +19,6 @@ public abstract class Funcionario extends Usuario {
     protected boolean adicionarEmprestimo(Midia midia) {
 
         int qtd = analiseDeMidiasEmprestadas(midia);
-
         if (qtd < 5) {
             emprestimos.add(midia);
             return true;
@@ -54,9 +53,9 @@ public abstract class Funcionario extends Usuario {
 
     @Override
     public String toString() {
-        return "Funcionario{" +
-                "matricula=" + matricula +
-                ", salario=" + salario +
-                '}';
+        return "\nFuncionario: "+
+                "\n- Nome: " + getNome() +
+                "\n- Matricula: " + matricula +
+                "\n- Salário: " + salario;
     }
 }
