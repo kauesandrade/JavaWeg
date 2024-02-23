@@ -8,12 +8,13 @@ public abstract class Midia {
 
     private static final ArrayList<Midia> midias = new ArrayList<>();
 
-    private boolean emprestado;
+    protected boolean emprestado;
+    protected int codigo;
+    protected String nome;
 
-    private int codigo;
-
-    public Midia(int codigo){
+    public Midia(int codigo, String nome){
         this.codigo = codigo;
+        this.nome = nome;
     }
 
     public static Midia procurarMidia(int codigo) {
@@ -54,12 +55,5 @@ public abstract class Midia {
 
     public void alterarEmprestimo () {
         this.emprestado = !this.emprestado;
-    }
-
-    @Override
-    public String toString() {
-        return "\nMídia: " +
-                "\n- Código: " + codigo +
-                "\n- Emprestado: " + emprestado;
     }
 }
